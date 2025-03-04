@@ -20,19 +20,20 @@ Ensure your system is updated before proceeding.
 
 ```sh
 sudo dnf update -y
+```
 
 ---
 
 ## Step 2: Install and Configure Nginx
 
-Install Nginx 
+### Install Nginx
+To install Nginx on RHEL/Rocky Linux 9, run the following command:
 
 ```sh
 sudo dnf install nginx -y
-
-Enable and Start Nginx
-
+```
+### Enable and Start Nginx
+#### Once installed, enable and start the Nginx service:
 ```sh
 sudo systemctl enable --now nginx
-sudo systemctl status nginx
-
+```
