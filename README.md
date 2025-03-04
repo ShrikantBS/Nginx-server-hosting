@@ -21,6 +21,7 @@ Ensure your system is updated before proceeding.
 ```sh
 sudo dnf update -y
 
+---
 
 ## Step 2: Install and Configure Nginx
 
