@@ -1,3 +1,4 @@
+# Drive Link of the sample website: [Drive Link](https://drive.google.com/file/d/1EeNykN_myBsbX0jHbiqh5dqSwzOaPo_A/view?usp=sharing)
 # Secure Web Server Deployment and SSL Configuration on RHEL/Rocky Linux 9
 
 This guide provides a step-by-step approach to deploying an **Nginx web server** on an **AWS EC2 instance** running **RHEL/Rocky Linux 9**, securing it with **Let's Encrypt SSL certificates**, and ensuring auto-renewal.
@@ -7,7 +8,7 @@ This guide provides a step-by-step approach to deploying an **Nginx web server**
 ## Prerequisites
 
 - An **AWS EC2 instance** running **RHEL/Rocky Linux 9**.
-- A **registered domain/subdomain** (e.g., `projectnginx.duckdns.org`).
+- A **registered domain/subdomain** (e.g., [Domain Link](projectnginx.duckdns.org)).
 - **Root or sudo privileges** on the EC2 instance.
 - **Firewall configured** to allow HTTP (80) and HTTPS (443).
 - **DuckDNS account** (if using DuckDNS for free domain hosting).
@@ -138,3 +139,4 @@ sudo certbot certificates
 🔗 `https://projectnginx.duckdns.org`
 
 ### You should see your website secured with HTTPS.
+
