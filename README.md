@@ -68,3 +68,73 @@ sudo certbot certonly --manual --preferred-challenges dns -d projectnginx.duckdn
 ```
 - Certbot will prompt you to add a DNS TXT record.
 - Use the DuckDNS API to add the TXT record:
+```sh
+curl "https://www.duckdns.org/update?domains=projectnginx&token=YOUR_DUCKDNS_TOKEN&txt=YOUR_CERTBOT_VALUE"
+```
+- Verify the TXT record using:
+```sh
+dig -t TXT _acme-challenge.projectnginx.duckdns.org
+```
+- Once verified, press Enter in the Certbot prompt to proceed.
+
+---
+
+## Step 5: Configure Nginx for SSL
+#### Edit the Nginx configuration:
+```sh
+sudo nano /etc/nginx/conf.d/default.conf
+```
+#### Replace the contents with:
+```sh
+server {
+    listen 80;
+    server_name projectnginx.duckdns.org;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name projectnginx.duckdns.org;
+
+    ssl_certificate /etc/letsencrypt/live/projectnginx.duckdns.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/projectnginx.duckdns.org/privkey.pem;
+
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+}
+```
+#### Save and exit.
+
+---
+
+## Step 6: Restart Nginx to Apply SSL Configuration
+```sh
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+---
+
+## Step 7: Set Up Auto-Renewal for SSL Certificate
+#### To ensure automatic renewal of the SSL certificate, add a cron job:
+```sh
+echo "0 0 * * * root certbot renew --quiet" | sudo tee /etc/cron.d/certbot-renew
+```
+
+--- 
+
+## Step 8: Verify Deployment
+#### Check SSL Certificate
+```sh
+sudo certbot certificates
+```
+
+---
+
+### Visit the Secured Website
+### Open a browser and visit:
+🔗 `https://projectnginx.duckdns.org`
+
+### You should see your website secured with HTTPS.
