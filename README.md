@@ -37,3 +37,34 @@ sudo dnf install nginx -y
 ```sh
 sudo systemctl enable --now nginx
 ```
+#### To check if Nginx is running:
+```sh
+sudo systemctl status nginx
+```
+### Configure Firewall to Allow Web Traffic
+#### Ensure that your firewall allows HTTP (port 80) and HTTPS (port 443) traffic:
+```sh
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+```
+#### This ensures that your web server can accept requests over the internet.
+
+---
+
+## Step 3: Install Certbot for SSL
+### Install Certbot and Dependencies
+```sh
+sudo dnf install epel-release -y
+sudo dnf install certbot python3-certbot-nginx -y
+```
+
+---
+
+## Step 4: Obtain SSL Certificate Using DNS Challenge
+### Run the following command to generate an SSL certificate for your domain:
+```sh
+sudo certbot certonly --manual --preferred-challenges dns -d projectnginx.duckdns.org
+```
+- Certbot will prompt you to add a DNS TXT record.
+- Use the DuckDNS API to add the TXT record:
