@@ -144,10 +144,10 @@ sudo certbot certificates
 
 ## Conclusion
 
-### You have successfully: 
-### ✅ Deployed Nginx on an AWS EC2 instance (RHEL/Rocky Linux 9).
-### ✅ Secured it with a Let's Encrypt SSL Certificate using a DNS Challenge.
-### ✅ Configured automatic certificate renewal.
+#### You have successfully: 
+#### ✅ Deployed Nginx on an AWS EC2 instance (RHEL/Rocky Linux 9).
+#### ✅ Secured it with a Let's Encrypt SSL Certificate using a DNS Challenge.
+#### ✅ Configured automatic certificate renewal.
 
-### Your website is now secure and production-ready! 🎉
+#### Your website is now secure and production-ready! 🎉
 
