@@ -8,7 +8,7 @@ This guide provides a step-by-step approach to deploying an **Nginx web server**
 ## Prerequisites
 
 - An **AWS EC2 instance** running **RHEL/Rocky Linux 9**.
-- A **registered domain/subdomain** (e.g., [Domain Link](projectnginx.duckdns.org)).
+- A **registered domain/subdomain** (e.g., [projectnginx.duckdns.org](projectnginx.duckdns.org)).
 - **Root or sudo privileges** on the EC2 instance.
 - **Firewall configured** to allow HTTP (80) and HTTPS (443).
 - **DuckDNS account** (if using DuckDNS for free domain hosting).
@@ -136,7 +136,17 @@ sudo certbot certificates
 
 ### Visit the Secured Website
 ### Open a browser and visit:
-🔗 `https://projectnginx.duckdns.org`
+🔗 [https://projectnginx.duckdns.org](https://projectnginx.duckdns.org)
 
 ### You should see your website secured with HTTPS.
+
+---
+
+## Conclusion
+## You have successfully: 
+## ✅ Deployed Nginx on an AWS EC2 instance (RHEL/Rocky Linux 9).
+## ✅ Secured it with a Let's Encrypt SSL Certificate using a DNS Challenge.
+## ✅ Configured automatic certificate renewal.
+
+## Your website is now secure and production-ready! 🎉
 
